@@ -1,0 +1,13 @@
+# Operator Bookings Page - Flowbite Conversion
+
+## This view has four distinct tables. They have not yet been ported to our new table as various features must be supported prior to this.
+
+## This is the most complex view in the application. Please tackle this *last*.
+
+## It could not be used because as of right now, the three dots functionality is broken on the component table.
+
+The Bookings page has been consolidated and attached to this folder.
+
+Implement this table: https://www.figma.com/design/xEAgeYvJoWIBVwEA5L7EJx/Micdrop?node-id=413-76986&t=yIzpFCbBRzukR7W1-4
+
+Ensure that you have set your "operator_token" cookie to a valid token retrieved from your session on https://get-micdrop.com/auth/login/operator
