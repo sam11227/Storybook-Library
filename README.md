@@ -18,7 +18,8 @@ Repository Root
 │   │       └── Table
 │   │           └── (Component to modify)
 │   └── stories
-│       └── * (Page examples to implement)```
+│       └── * (Page examples to implement)
+```
 
 There are two types of components found here:
 - Components that import the Table in lib/components/table
