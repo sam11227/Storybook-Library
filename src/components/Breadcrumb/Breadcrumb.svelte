@@ -1,5 +1,5 @@
 <script>
-	import { AngleRightSolid, HomeSolid } from 'flowbite-svelte-icons';
+	import { HomeSolid } from 'flowbite-svelte-icons';
 	import { createEventDispatcher } from 'svelte';
 
 	export let data = [];
@@ -16,7 +16,7 @@
 >
 	{#each data as crumb, index}
 		{#if index > 0}
-			<AngleRightSolid size="xs" style="margin-right: 8px;" />
+			<!-- <AngleRightSolid size="xs" style="margin-right: 8px;" /> -->
 		{/if}
 		{#if index === 0}
 			<HomeSolid size="xs" style="margin-right: 8px;" />
