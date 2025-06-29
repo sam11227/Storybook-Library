@@ -1,26 +1,25 @@
 <script context="module">
-	import Form from './Form.svelte';
+  import Form from './Form.svelte';
+  import { defineMeta } from '@storybook/addon-svelte-csf';
 
-	export const meta = {
-		title: 'Components/Form',
-		component: Form,
-		argTypes: {}
-	};
+  const { Story } = defineMeta({
+    title: 'Components/Form',
+    component: Form,
+    tags: ['autodocs'],
+    argTypes: {
+      show: { control: 'boolean' }
+      // Add more props here if needed
+    }
+  });
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-
-	function handleAction(label) {}
-</script>
-
-<Template let:args>
-	<Form {...args} />
-</Template>
 
 <Story
-	name="Interactive Custom Form"
-	args={{
-		show: true
-	}}
-/>
+  name="Interactive Custom Form"
+  args={{
+    show: true
+  }}
+>
+  {#snippet template(args)}
+    <Form {...args} />
+  {/snippet}
+</Story>

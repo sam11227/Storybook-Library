@@ -1,29 +1,30 @@
 <script context="module">
-	import LoadingModal from './LoadingModal.svelte';
+  import LoadingModal from './LoadingModal.svelte';
+  import { defineMeta } from '@storybook/addon-svelte-csf';
 
-	export const meta = {
-		title: 'Components/LoadingModal',
-		component: LoadingModal
-	};
+  const { Story } = defineMeta({
+    title: 'Components/LoadingModal',
+    component: LoadingModal,
+    tags: ['autodocs'],
+    argTypes: {
+      show: { control: 'boolean' }
+    }
+  });
 </script>
 
 <script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
+  let show = true;
 
-	let show = true;
-
-	function handleClose() {
-		show = false;
-	}
+  function handleClose() {
+    show = false;
+  }
 </script>
 
-<Template let:args>
-	<LoadingModal {...args} {show} on:close={handleClose} />
-</Template>
-
 <Story
-	name="Default Loading Modal"
-	args={{
-		show: true
-	}}
-/>
+  name="Default Loading Modal"
+  args={{ show: true }}
+>
+  {#snippet template(args)}
+    <LoadingModal {...args} on:close={handleClose} />
+  {/snippet}
+</Story>

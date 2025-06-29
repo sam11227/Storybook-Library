@@ -3,7 +3,7 @@
   import imageView from "./../../assets/images/image.png";
 
   export const meta = {
-    title: "Components/Calendar",
+    title: "Components/PrivetCalendar",
     component: Calendar,
     argTypes: {},
   };

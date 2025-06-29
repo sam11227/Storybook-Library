@@ -6,6 +6,8 @@
   import ArrowLeft from "./../../assets/icons/left-square.svg";
   import ArrowRight from "./../../assets/icons/right-square.svg";
 
+  
+
   let selectedStartDate = writable(null);
   let selectedEndDate = writable(null);
   let isDatePickerOpen = writable(false);

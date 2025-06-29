@@ -1,30 +1,16 @@
 <script context="module">
-  import { onMount } from "svelte";
-  import { initFlowbite } from 'flowbite'
-  import DatePicker from "./DatePicker.svelte";
+  import DatePicker from './DatePicker.svelte';
+  import { defineMeta } from '@storybook/addon-svelte-csf';
 
-  export const meta = {
-    title: "Components/Datepicker",
+  const { Story } = defineMeta({
+    title: 'Components/DatePicker',
     component: DatePicker,
-  };
+    tags: ['autodocs'],
+    argTypes: {} // No props to control yet
+  });
 </script>
 
-<script>
-  import { Template, Story } from "@storybook/addon-svelte-csf";
-
-  onMount(() => {
-    initFlowbite();
-  })
-  
-  export const Default = Template.bind({});
-  Default.args = {};
-</script>
-
-<Template let:args>
-  <DatePicker />
-</Template>
-
-<Story
-  name="Default DatePicker">
+<Story name="Default">
   <DatePicker />
 </Story>
+  

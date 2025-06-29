@@ -3,9 +3,9 @@
   import { createEventDispatcher, onMount } from "svelte";
   import Button from "../Button/Button.svelte";
 
-  import CalendarIcon from "@assets/icons/calendar-month.svg";
-  import ArrowLeft from "@assets/icons/arrow-left.svg";
-  import ArrowRight from "@assets/icons/arrow-right.svg";
+  import CalendarIcon from "../../assets/icons/calendar-month.svg";
+  import ArrowLeft from "../../assets/icons/arrow-left.svg";
+  import ArrowRight from "../../assets/icons/arrow-right.svg";
 
   export let id = "";
   export let name = "";

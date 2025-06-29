@@ -1,49 +1,42 @@
 <script context="module">
-	import EventActionModal from './EventActionModal.svelte';
+  import EventActionModal from './EventActionModal.svelte';
+  import { defineMeta } from '@storybook/addon-svelte-csf';
 
-	export const meta = {
-		title: 'Components/EventActionModal',
-		component: EventActionModal
-	};
+  const { Story } = defineMeta({
+    title: 'Components/EventActionModal',
+    component: EventActionModal,
+    tags: ['autodocs'],
+    argTypes: {
+      show: { control: 'boolean' },
+      fromDateTime: { control: 'text' },
+      toDateTime: { control: 'text' },
+    }
+  });
 </script>
-
-<script>
-	import { Story, Template } from '@storybook/addon-svelte-csf';
-
-	let show = true;
-	let fromDateTime = '10:30 Tuesday June 20, 2024';
-	let toDateTime = '12:30 Wednesday June 21, 2024';
-
-	function handleReschedule() {
-		show = false;
-	}
-
-	function handleManage() {
-		show = false;
-	}
-
-	function handleDelete() {
-		show = false;
-	}
-</script>
-
-<Template let:args>
-	<EventActionModal
-		{...args}
-		{show}
-		{fromDateTime}
-		{toDateTime}
-		on:reschedule={handleReschedule}
-		on:manage={handleManage}
-		on:delete={handleDelete}
-	/>
-</Template>
 
 <Story
-	name="Default Event Action Modal"
-	args={{
-		show: true,
-		fromDateTime: '10:30 Tuesday June 20, 2024',
-		toDateTime: '12:30 Wednesday June 21, 2024'
-	}}
+  name="Default Event Action Modal"
+  args={{
+    show: true,
+    fromDateTime: '10:30 Tuesday June 20, 2024',
+    toDateTime: '12:30 Wednesday June 21, 2024'
+  }}
+>
+  {#snippet template(args)}
+    <EventActionModal
+      {...args}
+      on:reschedule={() => console.log('Rescheduled')}
+      on:manage={() => console.log('Managed')}
+      on:delete={() => console.log('Deleted')}
+    />
+  {/snippet}
+</Story>
+
+<Story
+  name="Hidden Modal"
+  args={{
+    show: false,
+    fromDateTime: '10:30 Tuesday June 20, 2024',
+    toDateTime: '12:30 Wednesday June 21, 2024'
+  }}
 />

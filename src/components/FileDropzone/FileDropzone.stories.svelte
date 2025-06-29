@@ -1,40 +1,70 @@
 <script context="module">
-  import FileDropzone from "./FileDropzone.svelte";
-  import { Template, Story } from "@storybook/addon-svelte-csf";
+  import FileDropzone from './FileDropzone.svelte';
+  import { defineMeta } from '@storybook/addon-svelte-csf';
 
-  export const meta = {
-    title: "Components/FileDropzone",
+  const { Story } = defineMeta({
+    title: 'Components/FileDropzone',
     component: FileDropzone,
-  };
+    tags: ['autodocs'],
+    argTypes: {
+      shape: {
+        control: { type: 'select' },
+        options: [
+          '32x32-circle',
+          '64x64-rounded-square',
+          '128x128-rounded-square',
+          '256x256-profile-photo',
+          'fullwidth-rounded-rectangle'
+        ]
+      },
+      readonly: { control: 'boolean' },
+      existingImages: {
+        control: 'array',
+        description: 'Array of image URLs to display initially'
+      }
+    }
+  });
 </script>
 
-<Template let:args>
-  <FileDropzone {...args} />
-</Template>
-
 <Story name="Default FileDropzone">
-  <FileDropzone />
+  {#snippet template(args)}
+    <FileDropzone {...args} />
+  {/snippet}
 </Story>
 
-<Story name="Rounded Square Small Shape Dropzone">
-  <FileDropzone shape="32x32-circle" />
-</Story>
+<Story
+  name="Rounded Square Small Shape Dropzone"
+  args={{
+    shape: '32x32-circle'
+  }}
+/>
 
-<Story name="FileDropzone with Existing Images">
-  <FileDropzone
-    existingImages={["https://via.placeholder.com/150"]}
-    shape="256x256-profile-photo"
-  />
-</Story>
+<Story
+  name="FileDropzone with Existing Images"
+  args={{
+    shape: '256x256-profile-photo',
+    existingImages: ['https://via.placeholder.com/150']
+  }}
+/>
 
-<Story name="Readonly FileDropzone">
-  <FileDropzone shape="128x128-rounded-square" />
-</Story>
+<Story
+  name="Readonly FileDropzone"
+  args={{
+    shape: '128x128-rounded-square',
+    readonly: true
+  }}
+/>
 
-<Story name="Rounded Square Shape Dropzone">
-  <FileDropzone shape="64x64-rounded-square" />
-</Story>
+<Story
+  name="Rounded Square Shape Dropzone"
+  args={{
+    shape: '64x64-rounded-square'
+  }}
+/>
 
-<Story name="Fullwidth Rounded Rectangle Dropzone">
-  <FileDropzone shape="fullwidth-rounded-rectangle" />
-</Story>
+<Story
+  name="Fullwidth Rounded Rectangle Dropzone"
+  args={{
+    shape: 'fullwidth-rounded-rectangle'
+  }}
+/>
